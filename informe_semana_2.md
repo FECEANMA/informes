@@ -106,3 +106,7 @@ vi index2.html
 ```bash
 docker cp index2.html nginx2:/usr/share/nginx/html/index.html
 ```
+
+## 9. Resultados esperados
+- Al acceder desde el navegador web al puerto 8089, se debería visualizar la página con la información institucional.
+- Al acceder al puerto 8090, debe mostrarse la página personalizada del estudiante.
