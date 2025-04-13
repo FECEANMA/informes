@@ -16,8 +16,6 @@ La virtualización ha evolucionado hacia contenedores, donde Docker se ha conver
 
 En esta práctica, usamos **Nginx**, un servidor web de alto rendimiento, muy utilizado por su eficiencia en servir contenido estático, su bajo consumo de recursos y su fácil configuración.
 
-![Figura 3-1. Arquitectura de contenedores Docker con Nginx](https://www.nginx.com/wp-content/uploads/2020/05/NGINX-One-Pager-Graphics_050620-05.png)
-
 Cada contenedor ejecuta su propio servidor Nginx escuchando en diferentes puertos del sistema anfitrión. Uno muestra información institucional y el otro, información personal del estudiante. La manipulación del archivo `index.html` permite personalizar la salida web que cada contenedor entrega al navegar por los puertos correspondientes.
 
 **Conceptos importantes:**
