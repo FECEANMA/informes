@@ -123,7 +123,6 @@ docker cp index2.html nginx2:/usr/share/nginx/html/index.html
 ![10](./img_semana_2/10.png)
 
 ## 10. Bibliografía
-## 10. Bibliografía
 
 - Susnjara, S., & Smalley, I. (2025, febrero 20). ¿Qué es Docker? Ibm.com. https://www.ibm.com/es-es/think/topics/docker
 
