@@ -71,7 +71,7 @@ Para esta práctica, se debe tener claro:
 ```bash
 docker run -d --name nginx1 -p 8089:80 nginx
 ```
-![1](./img_semana_2/1.png)
+<img src="./img_semana_2/1.png" width="800">
 
 ### Paso 2: Crear el segundo contenedor Nginx (nginx2)  
 ```bash
@@ -83,44 +83,44 @@ docker run -d --name nginx2 -p 8090:80 nginx
 ```bash
 docker cp nginx1:/usr/share/nginx/html/index.html ./index1.html
 ```
-![3](./img_semana_2/3.png)
+<img src="./img_semana_2/3.png" width="800">
 
 ### Paso 4: Editar el archivo index1.html  
 ```bash
 vi index1.html
 ```
-![4](./img_semana_2/4.png)
+<img src="./img_semana_2/4.png" width="800">
 
 ### Paso 5: Copiar el archivo modificado de nuevo al contenedor nginx1  
 ```bash
 docker cp index1.html nginx1:/usr/share/nginx/html/index.html
 ```
-![5](./img_semana_2/5.png)
+<img src="./img_semana_2/5.png" width="800">
 
 ### Paso 6: Copiar el archivo index.html desde nginx2 al host  
 ```bash
 docker cp nginx2:/usr/share/nginx/html/index.html ./index2.html
 ```
-![6](./img_semana_2/6.png)
+<img src="./img_semana_2/6.png" width="800">
 
 ### Paso 7: Editar el archivo index2.html  
 ```bash
 vi index2.html
 ```
-![7](./img_semana_2/7.png)
+<img src="./img_semana_2/7.png" width="800">
 
 ### Paso 8: Copiar el archivo modificado de nuevo al contenedor nginx2  
 ```bash
 docker cp index2.html nginx2:/usr/share/nginx/html/index.html
 ```
-![8](./img_semana_2/8.png)
+<img src="./img_semana_2/8.png" width="800">
 
 ## 9. Resultados esperados
 - Al acceder desde el navegador web al puerto 8089, se debería visualizar la página con la información institucional.
-![9](./img_semana_2/9.png)
+<img src="./img_semana_2/9.png" width="800">
 
 - Al acceder al puerto 8090, debe mostrarse la página personalizada del estudiante.
-![10](./img_semana_2/10.png)
+<img src="./img_semana_2/10.png" width="800">
 
 ## 10. Bibliografía
 
