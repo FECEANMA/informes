@@ -110,3 +110,14 @@ docker cp index2.html nginx2:/usr/share/nginx/html/index.html
 ## 9. Resultados esperados
 - Al acceder desde el navegador web al puerto 8089, se debería visualizar la página con la información institucional.
 - Al acceder al puerto 8090, debe mostrarse la página personalizada del estudiante.
+
+## 10. Bibliografía
+## 10. Bibliografía
+
+- Susnjara, S., & Smalley, I. (2025, febrero 20). ¿Qué es Docker? Ibm.com. https://www.ibm.com/es-es/think/topics/docker
+
+- Atlassian. (s/f). Comparación de contenedores y máquinas virtuales. Atlassian. Recuperado el 13 de abril de 2025, de https://www.atlassian.com/es/microservices/cloud-computing/containers-vs-vms
+  
+- Home. (2025, febrero 27). Docker Documentation. https://docs.docker.com/
+
+- Stamp, M. (2023, diciembre 18). Top 100 comandos de Linux: una guía esencial para usuarios avanzados​. Guías para Sitios Web, Tips & Conocimiento; DreamHost. https://www.dreamhost.com/blog/es/comandos-linux-que-debes-conocer/
