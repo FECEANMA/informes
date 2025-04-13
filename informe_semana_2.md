@@ -58,7 +58,7 @@ Para esta práctica, el estudiante debe tener claro:
 
 ## 7. Material de apoyo
 
-- [Documentación oficial de Docker](https://docs.docker.com/)
+- Documentación oficial de Docker
 - Guía de asignatura
 - Comandos de Linux
 - Editor de texto: `nano` o `vi`
