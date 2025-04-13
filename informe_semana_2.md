@@ -77,7 +77,7 @@ docker run -d --name nginx1 -p 8089:80 nginx
 ```bash
 docker run -d --name nginx2 -p 8090:80 nginx
 ```
-![2](./img_semana_2/2.png)
+<img src="./img_semana_2/2.png" width="800">
 
 ### Paso 3: Copiar el archivo index.html desde nginx1 al host  
 ```bash
