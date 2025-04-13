@@ -71,7 +71,8 @@ Para esta práctica, el estudiante debe tener claro:
 ```bash
 docker run -d --name nginx1 -p 8089:80 nginx
 ```
-![1](img_semana_2/1.png)
+![1](./img_semana_2/1.png)
+
 
 ### Paso 2: Crear el segundo contenedor Nginx (nginx2)  
 ```bash
