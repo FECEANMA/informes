@@ -6,7 +6,7 @@
 ---
 
 ## 2. Tiempo de duración  
-**60 minutos**
+**40 minutos**
 
 ---
 
