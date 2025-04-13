@@ -30,7 +30,7 @@ Cada contenedor ejecuta su propio servidor Nginx escuchando en diferentes puerto
 
 ## 4. Conocimientos previos
 
-Para esta práctica, el estudiante debe tener claro:
+Para esta práctica, se debe tener claro:
 
 - Comandos básicos de Linux (ls, vi, nano, etc.)
 - Uso de terminal o consola
