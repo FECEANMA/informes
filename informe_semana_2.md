@@ -12,9 +12,9 @@
 
 ## 3. Fundamentos
 
-La virtualización ha evolucionado hacia contenedores, donde Docker se ha convertido en una de las herramientas más utilizadas para la creación, distribución y ejecución de aplicaciones en entornos aislados. Docker permite encapsular una aplicación y todas sus dependencias en un contenedor, garantizando que se ejecute de la misma forma en cualquier entorno.
+La virtualización ha evolucionado hacia contenedores, donde Docker se ha convertido en una de las herramientas más utilizadas para la creación, distribución y ejecución de aplicaciones en entornos aislados. Docker posibilita encapsular una aplicación y todas sus dependencias en un contenedor, asegurando que opere de igual manera en cualquier ambiente.
 
-En esta práctica, usamos **Nginx**, un servidor web de alto rendimiento, muy utilizado por su eficiencia en servir contenido estático, su bajo consumo de recursos y su fácil configuración.
+En este ejercicio, utilizamos **Nginx**, un servidor web altamente eficiente, famoso por su eficacia al servir contenido estático, su reducido uso de recursos y su sencilla configuración.
 
 Cada contenedor ejecuta su propio servidor Nginx escuchando en diferentes puertos del sistema anfitrión. Uno muestra información institucional y el otro, información personal del estudiante. La manipulación del archivo `index.html` permite personalizar la salida web que cada contenedor entrega al navegar por los puertos correspondientes.
 
@@ -32,11 +32,10 @@ Cada contenedor ejecuta su propio servidor Nginx escuchando en diferentes puerto
 
 Para esta práctica, el estudiante debe tener claro:
 
-- Comandos básicos de Linux (cp, ls, nano, etc.)
+- Comandos básicos de Linux (ls, vi, nano, etc.)
 - Uso de terminal o consola
 - Conocimientos básicos de HTML
 - Manejo de Docker: instalación, imágenes, contenedores
-- Navegación web mediante puertos
 
 ---
 
@@ -45,17 +44,15 @@ Para esta práctica, el estudiante debe tener claro:
 - Implementar contenedores web con Nginx usando Docker.
 - Personalizar contenido web dentro de contenedores mediante archivos HTML.
 - Manipular archivos de configuración dentro de un contenedor.
-- Comprobar el correcto funcionamiento de múltiples servicios web en paralelo.
 
 ---
 
 ## 6. Equipo necesario
 
-- Computadora con sistema operativo: Windows/Linux/Mac
-- Docker instalado (versión recomendada: Docker v24 o superior)
-- Cuenta en Docker Hub (opcional)
+- Computadora con sistema operativo
+- Docker Playground
 - Conexión a Internet
-- Navegador web actualizado
+- Navegador web 
 
 ---
 
@@ -63,8 +60,8 @@ Para esta práctica, el estudiante debe tener claro:
 
 - [Documentación oficial de Docker](https://docs.docker.com/)
 - Guía de asignatura
-- Cheat Sheet de comandos Linux
-- Editor de texto: `nano`, `vi` o similar
+- Comandos de Linux
+- Editor de texto: `nano` o `vi`
 
 ---
 
