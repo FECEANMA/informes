@@ -70,3 +70,39 @@ Para esta práctica, el estudiante debe tener claro:
 ### Paso 1: Crear el primer contenedor Nginx (nginx1)  
 ```bash
 docker run -d --name nginx1 -p 8089:80 nginx
+```
+
+### Paso 2: Crear el segundo contenedor Nginx (nginx2)  
+```bash
+docker run -d --name nginx2 -p 8090:80 nginx
+```
+
+### Paso 3: Copiar el archivo index.html desde nginx1 al host  
+```bash
+docker cp nginx1:/usr/share/nginx/html/index.html ./index1.html
+```
+
+### Paso 4: Editar el archivo index1.html  
+```bash
+vi index1.html
+```
+
+### Paso 5: Copiar el archivo modificado de nuevo al contenedor nginx1  
+```bash
+docker cp index1.html nginx1:/usr/share/nginx/html/index.html
+```
+
+### Paso 6: Copiar el archivo index.html desde nginx2 al host  
+```bash
+docker cp nginx2:/usr/share/nginx/html/index.html ./index2.html
+```
+
+### Paso 7: Editar el archivo index2.html  
+```bash
+vi index2.html
+```
+
+### Paso 8: Copiar el archivo modificado de nuevo al contenedor nginx2  
+```bash
+docker cp index2.html nginx2:/usr/share/nginx/html/index.html
+```
