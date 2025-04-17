@@ -77,6 +77,8 @@ touch src/app/{app.component.ts,app.component.html,app.component.css,app.module.
 ## 9. Resultados esperados
 Al finalizar la práctica, se espera contar con una estructura de carpetas completamente funcional que simule un proyecto Angular, incluso sin haber usado Angular CLI. Ademas de haber fortalecido el dominio de comandos básicos de Linux como mkdir, touch y cd.
 
+<img src="./img_semana_1/1.png" width="800">
+
 ## 10. Bibliografía
 - Comando mkdir de Linux: para crear nuevos directorios. (s/f). IONOS Digital Guide. Recuperado el 17 de abril de 2025, de https://www.ionos.com/es-us/digitalguide/servidores/configuracion/comando-mkdir-de-linux/
 - Bigelow, S. J. (2021, abril 9). Sistema operativo Linux. ComputerWeekly.es; TechTarget. https://www.computerweekly.com/es/definicion/Sistema-operativo-Linux
