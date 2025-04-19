@@ -1,4 +1,4 @@
-# Práctica: Persistencia de datos con PostgreSQL y Docker
+# Persistencia de datos con PostgreSQL y Docker
 
 ## 1. Título
 Persistencia de datos en bases de datos PostgreSQL usando contenedores Docker con y sin volúmenes
