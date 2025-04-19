@@ -41,7 +41,7 @@ Para realizar esta práctica se debe tener conocimiento en:
 
 ## 8. Procedimiento
 
-### Parte 1: Base de datos sin volumen
+- ### Parte 1: Base de datos sin volumen
 
 ### Paso 1: Crear un contenedor PostgreSQL con el nombre server_db1.
 
@@ -72,7 +72,7 @@ docker run --name server_db1 -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres
 
 ### Paso 8: Verificar que la base de datos test ya no existe, demostrando que los datos no se han conservado.
 
-### Parte 2: Base de datos con volumen
+- ### Parte 2: Base de datos con volumen
 
 ### Paso 1: Crear un volumen en Docker con el comando:
 
