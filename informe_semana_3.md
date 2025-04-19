@@ -107,3 +107,13 @@ docker run --name server_db2 -e POSTGRES_PASSWORD=1234 -p 5433:5432 -v pgdata:/v
 ```
 ### Paso 9: Conectarse desde el administrador de base de datos y verificar que la base de datos test y los registros han persistido.
 
+## 9. Resultados esperados
+
+- Si se utilizan contenedores sin volumen, se pierden al eliminar el contenedor.
+
+- Si se utilizan contenedores con volumen, los datos persisten incluso tras detener y eliminar el contenedor.
+
+Esto demuestra la importancia de usar volúmenes cuando se requiere persistencia de datos en aplicaciones que usan Docker.
+
+##10. Bibliografía
+
