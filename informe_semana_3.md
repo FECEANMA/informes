@@ -48,13 +48,23 @@ Para realizar esta práctica se debe tener conocimiento en:
 ```bash
 docker run --name server_db1 -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres
 ```
+<img src="./img_semana_3/1.png" width="800">
+
 ### Paso 2: Conectar un administrador de base de datos (como DataGrip o TablePlus) al contenedor server_db1.
+
+<img src="./img_semana_3/2.png" width="800">
 
 ### Paso 3: Crear una base de datos llamada test.
 
+<img src="./img_semana_3/3.png" width="800">
+
 ### Paso 4: En la base de datos test, crear una tabla llamada customer con los campos: id, fullname y status.
 
+<img src="./img_semana_3/4.png" width="800">
+
 ### Paso 5: Insertar al menos un registro en la tabla customer.
+
+<img src="./img_semana_3/5.png" width="800">
 
 ### Paso 6: Detener y eliminar el contenedor server_db1.
 
@@ -62,6 +72,8 @@ docker run --name server_db1 -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres
 docker stop server_db1
 docker rm server_db1
 ```
+
+<img src="./img_semana_3/6.png" width="800">
 
 ### Paso 7: Volver a crear el contenedor PostgreSQL con el mismo nombre server_db1.
 
