@@ -81,9 +81,15 @@ docker rm server_db1
 docker run --name server_db1 -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres
 ```
 
+<img src="./img_semana_3/7.png" width="800">
+
 ### Paso 8: Conectarse nuevamente desde el administrador de base de datos.
 
+<img src="./img_semana_3/8.png" width="800">
+
 ### Paso 9: Verificar que la base de datos test ya no existe, demostrando que los datos no se han conservado.
+
+<img src="./img_semana_3/9.png" width="800">
 
 - ### Parte 2: Base de datos con volumen
 
@@ -93,18 +99,31 @@ docker run --name server_db1 -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres
 docker volume create pgdata
 ```
 
+<img src="./img_semana_3/10.png" width="800">
+
 ### Paso 2: Crear un contenedor PostgreSQL con el nombre server_db2, asociando el volumen creado:
 
 ```bash
 docker run --name server_db2 -e POSTGRES_PASSWORD=1234 -p 5433:5432 -v pgdata:/var/lib/postgresql/data -d postgres
 ```
+
+<img src="./img_semana_3/11.png" width="800">
+
 ### Paso 3: Conectarse al contenedor con DataGrip o TablePlus.
+
+<img src="./img_semana_3/12.png" width="800">
 
 ### Paso 4: Crear la base de datos test.
 
+<img src="./img_semana_3/13.png" width="800">
+
 ### Paso 5: Crear la tabla customer con los campos: id, fullname, status.
 
+<img src="./img_semana_3/14.png" width="800">
+
 ### Paso 6: Insertar al menos un registro en la tabla.
+
+<img src="./img_semana_3/15.png" width="800">
 
 ### Paso 7: Detener y eliminar el contenedor server_db2.
 
@@ -113,12 +132,19 @@ docker stop server_db2
 docker rm server_db2
 ```
 
+<img src="./img_semana_3/16.png" width="800">
+
 ### Paso 8: Volver a crear el contenedor server_db2 usando el volumen pgdata nuevamente.
 
 ```bash
 docker run --name server_db2 -e POSTGRES_PASSWORD=1234 -p 5433:5432 -v pgdata:/var/lib/postgresql/data -d postgres
 ```
+
+<img src="./img_semana_3/17.png" width="800">
+
 ### Paso 9: Conectarse desde el administrador de base de datos y verificar que la base de datos test y los registros han persistido.
+
+<img src="./img_semana_3/18.png" width="800">
 
 ## 9. Resultados esperados
 
