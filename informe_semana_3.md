@@ -48,29 +48,30 @@ Para realizar esta práctica se debe tener conocimiento en:
 ```bash
 docker run --name server_db1 -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres
 ```
+### Paso 2: Conectar un administrador de base de datos (como DataGrip o TablePlus) al contenedor server_db1.
 
-### Paso 2: Crear una base de datos llamada test.
+### Paso 3: Crear una base de datos llamada test.
 
-### Paso 3: En la base de datos test, crear una tabla llamada customer con los campos: id, fullname y status.
+### Paso 4: En la base de datos test, crear una tabla llamada customer con los campos: id, fullname y status.
 
-### Paso 4: Insertar al menos un registro en la tabla customer.
+### Paso 5: Insertar al menos un registro en la tabla customer.
 
-### Paso 5: Detener y eliminar el contenedor server_db1.
+### Paso 6: Detener y eliminar el contenedor server_db1.
 
 ```bash
 docker stop server_db1
 docker rm server_db1
 ```
 
-### Paso 6: Volver a crear el contenedor PostgreSQL con el mismo nombre server_db1.
+### Paso 7: Volver a crear el contenedor PostgreSQL con el mismo nombre server_db1.
 
 ```bash
 docker run --name server_db1 -e POSTGRES_PASSWORD=1234 -p 5432:5432 -d postgres
 ```
 
-### Paso 7: Conectarse nuevamente desde el administrador de base de datos.
+### Paso 8: Conectarse nuevamente desde el administrador de base de datos.
 
-### Paso 8: Verificar que la base de datos test ya no existe, demostrando que los datos no se han conservado.
+### Paso 9: Verificar que la base de datos test ya no existe, demostrando que los datos no se han conservado.
 
 - ### Parte 2: Base de datos con volumen
 
