@@ -152,7 +152,6 @@ docker run --name server_db2 -e POSTGRES_PASSWORD=1234 -p 5433:5432 -v pgdata:/v
 
 - Si se utilizan contenedores con volumen, los datos persisten incluso tras detener y eliminar el contenedor.
 
-Esto demuestra la importancia de usar volúmenes cuando se requiere persistencia de datos en aplicaciones que usan Docker.
 
 ##10. Bibliografía
 
