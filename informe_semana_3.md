@@ -8,7 +8,13 @@ Persistencia de datos en bases de datos PostgreSQL usando contenedores Docker co
 
 ## 3. Fundamentos
 
+Se exploran los principios esenciales del uso de contenedores en Docker, con un enfoque particular en la gestión del almacenamiento de datos mediante el uso de volúmenes persistentes. Uno de los aspectos clave al trabajar con contenedores, especialmente cuando se implementan bases de datos como PostgreSQL, es comprender la diferencia entre almacenamiento efímero (temporal) y almacenamiento persistente (duradero).
 
+Por defecto, los contenedores en Docker están diseñados para ser efímeros: cualquier dato almacenado dentro del sistema de archivos del contenedor se elimina automáticamente cuando el contenedor se detiene y es eliminado. Esto representa una limitación importante en escenarios donde se necesita conservar información entre sesiones o reinicios del sistema.
+
+Para resolver este problema, Docker introduce el concepto de volúmenes, que son directorios especiales gestionados por Docker y ubicados fuera del sistema de archivos del contenedor. Estos volúmenes permiten que los datos persistan más allá del ciclo de vida del contenedor. En otras palabras, aunque un contenedor sea detenido, eliminado o incluso recreado, los datos almacenados en el volumen no se pierden y pueden ser reutilizados por un nuevo contenedor que monte ese mismo volumen.
+
+<img src="https://www.chucksacademy.com/api/proxy/uploads/docker_volume_1a47c4d290.png" width="800">
 
 ## 4. Conocimientos previos
 
