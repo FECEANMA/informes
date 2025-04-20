@@ -159,5 +159,11 @@ docker run --name server_db2 -e POSTGRES_PASSWORD=1234 -p 5433:5432 -v pgdata:/v
 - Si se utilizan contenedores con volumen, los datos persisten incluso tras detener y eliminar el contenedor.
 
 
-##10. Bibliografía
+## 10. Bibliografía
+
+- Comprender y gestionar los Docker volumes. (s/f). IONOS Digital Guide. Recuperado el 20 de abril de 2025, de https://www.ionos.com/es-us/digitalguide/servidores/know-how/docker-container-volumes/
+  
+- Mallón, X. (2022, mayo 4). Persistencia de datos en Docker: ¿Qué es? KeepCoding Bootcamps. https://keepcoding.io/blog/que-es-persistencia-de-datos-en-docker/
+  
+- ImagePostgresDocker. (s/f). Docker.com. Recuperado el 20 de abril de 2025, de https://hub.docker.com/_/postgres
 
