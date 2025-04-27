@@ -25,7 +25,7 @@ En esta práctica, se utilizan dos contenedores principales:
 - **Red Docker**: Las redes en Docker permiten que los contenedores se comuniquen entre sí sin exponer sus puertos al exterior.
 - **Variables de entorno**: Docker permite configurar contenedores utilizando variables de entorno, como `MYSQL_ROOT_PASSWORD` para establecer contraseñas en servicios como MySQL.
 
-<img src="[https://www.chucksacademy.com/api/proxy/uploads/docker_volume_1a47c4d290.png](https://dondocker.com/wp-content/uploads/2016/05/redes_aisladas_dondocker.png)" width="800">
+<img src="https://dondocker.com/wp-content/uploads/2016/05/redes_aisladas_dondocker.png" width="800">
 
 
 ## 4. **Conocimientos previos**
