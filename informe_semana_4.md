@@ -71,6 +71,7 @@ Ejecute el siguiente comando para crear un contenedor de MySQL:
 ```bash
 docker run -d --name mi_mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123 mysql:latest
 ```
+<img src="./img_semana_4/1.png" width="800">
 
 ### Paso 2: Crear el contenedor de phpMyAdmin
 
@@ -79,6 +80,7 @@ Ejecute el siguiente comando para crear el contenedor de phpMyAdmin:
 ```bash
 docker run -d --name mi_phpmyadmin -p 8080:80 -e PMA_HOST=mi_mysql -e PMA_PORT=3306 phpmyadmin/phpmyadmin
 ```
+<img src="./img_semana_4/2.png" width="800">
 
 ### Paso 3: Crear una red personalizada
 
@@ -87,6 +89,7 @@ Cree una red personalizada para permitir que los contenedores se comuniquen entr
 ```bash
 docker network create --attachable mi_red
 ```
+<img src="./img_semana_4/3.png" width="800">
 
 ### Paso 4: Conectar los contenedores a la red
 
@@ -96,6 +99,7 @@ Conecte ambos contenedores a la red recién creada:
 docker network connect mi_red mi_mysql
 docker network connect mi_red mi_phpmyadmin
 ```
+<img src="./img_semana_4/4.png" width="800">
 
 ### Paso 5: Acceder a phpMyAdmin
 
@@ -103,10 +107,12 @@ Acceda a la interfaz de phpMyAdmin desde su navegador en http://localhost:8080. 
 - Usuario: root
 - Contraseña: 123
 
+<img src="./img_semana_4/5.png" width="800">
 
 ### Paso 6: Crear una base de datos de prueba
 En phpMyAdmin, vaya a la pestaña "Bases de datos" y cree una nueva base de datos llamada ejemplo.
 
+<img src="./img_semana_4/6.png" width="800">
 
 ## 9. **Resultados esperados**
 
