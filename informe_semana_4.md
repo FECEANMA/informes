@@ -3,13 +3,11 @@
 ## 1. **Título**
 **Implementación de contenedores Docker para MySQL y phpMyAdmin en una red personalizada**
 
----
 
 ## 2. **Tiempo de duración**
 
 45 minutos  
 
----
 
 ## 3. **Fundamentos**
 
@@ -29,7 +27,6 @@ En esta práctica, se utilizan dos contenedores principales:
 
 <img src="[https://www.chucksacademy.com/api/proxy/uploads/docker_volume_1a47c4d290.png](https://dondocker.com/wp-content/uploads/2016/05/redes_aisladas_dondocker.png)" width="800">
 
----
 
 ## 4. **Conocimientos previos**
 
@@ -41,7 +38,6 @@ Para realizar esta práctica, se debe tener conocimientos sobre los siguientes t
 - Sistemas operativos
 - Creación y administración de redes en Docker
 
----
 
 ## 5. **Objetivos a alcanzar**
 
@@ -50,14 +46,12 @@ Para realizar esta práctica, se debe tener conocimientos sobre los siguientes t
 - **Gestionar bases de datos MySQL** a través de la interfaz web de phpMyAdmin.
 - **Crear una base de datos**
 
----
 
 ## 6. **Equipo necesario**
 
 - **Computadora con sistema operativo**: Windows, Linux o macOS.
 - **Docker instalado**
   
----
 
 ## 7. **Material de apoyo**
 
@@ -65,7 +59,6 @@ Para realizar esta práctica, se debe tener conocimientos sobre los siguientes t
 - **Guía de asignatura**
 - **Documentación de phpMyAdmin**
 
----
 
 ## 8. **Procedimiento**
 
