@@ -99,7 +99,7 @@ Conecte ambos contenedores a la red recién creada:
 docker network connect mi_red mi_mysql
 docker network connect mi_red mi_phpmyadmin
 ```
-<img src="./img_semana_4/4.png" width="800">
+<img src="./img_semana_4/5.png" width="800">
 
 ### Paso 5: Acceder a phpMyAdmin
 
@@ -107,17 +107,24 @@ Acceda a la interfaz de phpMyAdmin desde su navegador en http://localhost:8080. 
 - Usuario: root
 - Contraseña: 123
 
-<img src="./img_semana_4/5.png" width="800">
+<img src="./img_semana_4/6.png" width="800">
 
 ### Paso 6: Crear una base de datos de prueba
 En phpMyAdmin, vaya a la pestaña "Bases de datos" y cree una nueva base de datos llamada ejemplo.
 
-<img src="./img_semana_4/6.png" width="800">
+<img src="./img_semana_4/7.png" width="800">
 
 ## 9. **Resultados esperados**
 
 Al final de la práctica, deberías poder acceder a phpMyAdmin en tu navegador, conectarte a MySQL y crear una base de datos de prueba. La estructura final será la siguiente:
 
+Un contenedor mi_mysql que ejecuta MySQL.
+
+Un contenedor mi_phpmyadmin que proporciona una interfaz web para gestionar MySQL.
+
+Ambos contenedores deben estar conectados en una red Docker llamada mi_red.
+
+<img src="./img_semana_4/7.png" width="800">
 
 
 ## 10. **Bibliografía**
