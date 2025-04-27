@@ -116,19 +116,23 @@ En phpMyAdmin, vaya a la pestaña "Bases de datos" y cree una nueva base de dato
 
 ## 9. **Resultados esperados**
 
-Al final de la práctica, deberías poder acceder a phpMyAdmin en tu navegador, conectarte a MySQL y crear una base de datos de prueba. La estructura final será la siguiente:
+Al final de la práctica, se podra acceder a phpMyAdmin en el navegador, conectarte a MySQL y crear una base de datos de prueba. La estructura final será la siguiente:
 
-Un contenedor mi_mysql que ejecuta MySQL.
+- Un contenedor mi_mysql que ejecuta MySQL.
 
-Un contenedor mi_phpmyadmin que proporciona una interfaz web para gestionar MySQL.
+- Un contenedor mi_phpmyadmin que proporciona una interfaz web para gestionar MySQL.
 
-Ambos contenedores deben estar conectados en una red Docker llamada mi_red.
+- Ambos contenedores deben estar conectados en una red Docker llamada mi_red.
 
 <img src="./img_semana_4/7.png" width="800">
 
 
 ## 10. **Bibliografía**
 
-- Merkel, D. (2014). Docker: lightweight Linux containers for consistent development and deployment. Linux Journal.
+- Cómo crear una red de puente personalizada de Docker. (s/f). LabEx. Recuperado el 27 de abril de 2025, de https://labex.io/es/tutorials/docker-how-to-create-a-custom-docker-bridge-network-411523
 
 - Docker Documentation. (2025). Docker Inc. https://docs.docker.com
+
+- (Práctica 7. Creación de un contenedor Docker con phpMyAdmin). Josejuansanchez.org. Recuperado el 27 de abril de 2025, de https://josejuansanchez.org/bd/practica-07/index.html
+
+- Como crear un contenedor con Docker-Mysql y persistir la información. (s/f). Platzi. Recuperado el 27 de abril de 2025, de https://platzi.com/tutoriales/1432-docker-2018/3268-como-crear-un-contenedor-con-docker-mysql-y-persistir-la-informacion/
