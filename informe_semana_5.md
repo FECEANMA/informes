@@ -58,6 +58,7 @@ Se comienza creando una red personalizada para que los contenedores puedan comun
 ```bash
 docker network create wordpress-network
 ```
+<img src="./img_semana_5/1.png" width="800">
 
 ### Paso 2: Crear volúmenes Docker para los datos de MySQL y WordPress
 
@@ -67,6 +68,9 @@ Luego, se crean dos volúmenes para almacenar de manera persistente los datos de
 docker volume create mysql_data
 docker volume create wordpress_data
 ```
+<img src="./img_semana_5/2.png" width="800">
+
+<img src="./img_semana_5/3.png" width="800">
 
 ### Paso 3: Crear el contenedor de MySQL
 
@@ -75,6 +79,7 @@ A continuación, se crea el contenedor para MySQL, configurando las variables de
 ```bash
 docker run -d --name mysql-container --network wordpress-network -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=wordpress -e MYSQL_USER=wordpressuser -e MYSQL_PASSWORD=wordpresspassword -v mysql_data:/var/lib/mysql mysql:5.7
 ```
+<img src="./img_semana_5/4.png" width="800">
 
 ### Paso 4: Crear el contenedor de phpMyAdmin
 
@@ -83,6 +88,7 @@ Se crea el contenedor para phpMyAdmin para poder gestionar la base de datos MySQ
 ```bash
 docker run -d --name phpmyadmin-container --network wordpress-network -e PMA_HOST=mysql-container -e PMA_PORT=3306 -p 8080:80 phpmyadmin/phpmyadmin
 ```
+<img src="./img_semana_5/5.png" width="800">
 
 ### Paso 5: Crear el contenedor de WordPress
 
@@ -91,6 +97,7 @@ Por último, se lanza el contenedor de WordPress, conectándolo a la base de dat
 ```bash
 docker run -d --name wordpress-container --network wordpress-network -p 80:80 -e WORDPRESS_DB_HOST=mysql-container:3306 -e WORDPRESS_DB_NAME=wordpress -e WORDPRESS_DB_USER=wordpressuser -e WORDPRESS_DB_PASSWORD=wordpresspassword -v wordpress_data:/var/www/html wordpress:latest
 ```
+<img src="./img_semana_5/6.png" width="800">
 
 ## 9. Resultados esperados
 
@@ -102,6 +109,9 @@ Al finalizar la práctica, se espera obtener los siguientes resultados:
 
 - Persistencia de datos: Los datos de WordPress y MySQL se mantienen incluso si se detienen o eliminan los contenedores, gracias a los volúmenes.
 
+<img src="./img_semana_5/7.png" width="800">
+
+<img src="./img_semana_5/8.png" width="800">
 
 ## 10. Bibliografía
 
