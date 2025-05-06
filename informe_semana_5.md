@@ -24,12 +24,11 @@ Docker también simplifica la administración de contenedores, permitiendo inici
 
 ## 4. Conocimientos previos
 
-Para realizar esta práctica, el estudiante necesita tener claros los siguientes temas:
+Para realizar esta práctica, se necesita tener claros los siguientes temas:
 
 - **Docker**: Conocimiento básico sobre la creación y gestión de contenedores con Docker.
 - **Comandos de Docker**: Uso de comandos como `docker run`, `docker network create`, `docker volume create`, entre otros.
 - **Redes y Volúmenes en Docker**: Comprender la importancia de las redes para la comunicación entre contenedores y el uso de volúmenes para persistencia de datos.
-- **Gestión básica de bases de datos**: Conocimientos sobre bases de datos MySQL, creación de usuarios y bases de datos.
 
 ## 5. Objetivos a alcanzar
 
@@ -41,16 +40,14 @@ Para realizar esta práctica, el estudiante necesita tener claros los siguientes
 ## 6. Equipo necesario
 
 - Computadora con sistema operativo **Windows/Linux/Mac**.
-- **Docker Desktop** instalado en el equipo (versión 20.x o superior).
+- **Docker Desktop** instalado en el equipo.
 - Conexión a internet para descargar las imágenes necesarias de Docker.
-- Editor de texto para ver los comandos y realizar modificaciones si es necesario.
 
 ## 7. Material de apoyo
 
 - **Documentación oficial de Docker**: [https://docs.docker.com/](https://docs.docker.com/)
 - **Guía de asignatura**: Documento proporcionado por el docente con detalles adicionales de la práctica.
 - **Cheat sheet de Linux**: Guía rápida de comandos de Linux que puede ser útil durante el proceso de ejecución de Docker.
-- **Tutoriales de WordPress**: [https://wordpress.org/support/](https://wordpress.org/support/)
 
 ## 8. Procedimiento
 
