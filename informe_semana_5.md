@@ -20,7 +20,7 @@ Docker también simplifica la administración de contenedores, permitiendo inici
 
 ### Imagen 1-1: Diagrama de contenedores en Docker
 
-<img src="[https://dondocker.com/wp-content/uploads/2016/05/redes_aisladas_dondocker.png](https://miro.medium.com/v2/resize:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png)" width="800">
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png" width="800">
 
 
 ## 4. Conocimientos previos
