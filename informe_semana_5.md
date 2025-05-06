@@ -116,7 +116,7 @@ Al finalizar la práctica, se espera obtener los siguientes resultados:
 ## 10. Bibliografía
 
 - Docker, Inc. (2023). Docker Documentation. Recuperado de https://docs.docker.com/
+- Gómez, S. (s/f). Levantar un WordPress con Docker - Taller de Docker. Github.io. Recuperado el 6 de mayo de 2025, de https://aulasoftwarelibre.github.io/taller-de-docker/wordpress/
 - dockerHub (phpmyadmin). Docker.com. Recuperado el 3 de mayo de 2025, de https://hub.docker.com/_/phpmyadmin
 - dockerHub (wordpress). Docker.com. Recuperado el 3 de mayo de 2025, de https://hub.docker.com/_/wordpress
 - dockerHub (mysql). Docker.com. Recuperado el 3 de mayo de 2025, de https://hub.docker.com/_/mysql
-- Gómez, S. (s/f). Levantar un WordPress con Docker - Taller de Docker. Github.io. Recuperado el 6 de mayo de 2025, de https://aulasoftwarelibre.github.io/taller-de-docker/wordpress/
