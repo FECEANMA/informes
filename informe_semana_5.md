@@ -18,10 +18,9 @@ Un concepto clave es la creación de redes y volúmenes. Docker permite crear re
 
 Docker también simplifica la administración de contenedores, permitiendo iniciar, detener y gestionar contenedores de manera eficiente utilizando comandos simples, como `docker run`, `docker volume create` y `docker network create`. Este enfoque facilita el desarrollo, despliegue y mantenimiento de aplicaciones sin tener que preocuparse por las dependencias del sistema operativo subyacente.
 
-### Imagen 1-1: Diagrama de contenedores en Docker
-
 <img src="https://miro.medium.com/v2/resize:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png" width="800">
 
+### Imagen 1-1: Diagrama de contenedores en Docker
 
 ## 4. Conocimientos previos
 
