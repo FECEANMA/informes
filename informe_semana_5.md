@@ -1,138 +1,62 @@
-# Implementación de contenedores Docker para MySQL y phpMyAdmin en una red personalizada
+# Práctica servidor web
 
-## 1. **Título**
-**Implementación de contenedores Docker para MySQL y phpMyAdmin en una red personalizada**
+## 1. Título
 
+**Implementación de un entorno WordPress utilizando contenedores Docker**
 
-## 2. **Tiempo de duración**
+## 2. Tiempo de duración
 
-45 minutos  
+**45 minutos**
 
+## 3. Fundamentos
 
-## 3. **Fundamentos**
+En esta práctica, se utiliza Docker para crear un entorno aislado y flexible para ejecutar un sitio web basado en WordPress, con MySQL y phpMyAdmin, sin necesidad de instalar software directamente en el sistema operativo. Docker es una plataforma de software que permite automatizar la implementación de aplicaciones dentro de contenedores. Un contenedor es una unidad estándar de software que empaqueta el código y todas sus dependencias, lo que permite ejecutar aplicaciones de manera rápida y confiable en cualquier entorno.
 
-Docker es una plataforma de contenedores que permite a los desarrolladores empaquetar aplicaciones y sus dependencias en unidades estandarizadas llamadas "contenedores". Estos contenedores pueden ejecutarse de manera consistente en cualquier entorno, ya sea en desarrollo, pruebas o producción.
+Docker usa imágenes, que son plantillas inmutables de sistemas de archivos, para crear contenedores. En este caso, se utilizaron imágenes oficiales de MySQL y WordPress, junto con la imagen de phpMyAdmin para gestionar la base de datos de MySQL.
 
-En esta práctica, se utilizan dos contenedores principales:
+Un concepto clave es la creación de redes y volúmenes. Docker permite crear redes virtuales que conectan contenedores, facilitando la comunicación entre ellos. En esta práctica, se creó una red `wordpress-network` para que los contenedores de WordPress, MySQL y phpMyAdmin pudieran interactuar entre sí. Además, se utilizaron volúmenes para almacenar de manera persistente los datos de la base de datos MySQL y los archivos de WordPress, lo que garantiza que la información no se pierda cuando los contenedores se detengan o eliminen.
 
-- **MySQL**: Es un sistema de gestión de bases de datos relacional (RDBMS). Docker facilita su despliegue sin necesidad de instalación manual, ya que la imagen oficial de MySQL contiene todo lo necesario para ejecutar el servicio de bases de datos.
-  
-- **phpMyAdmin**: Es una herramienta web escrita en PHP que permite gestionar bases de datos MySQL a través de una interfaz gráfica. Con phpMyAdmin, podemos realizar tareas de administración de bases de datos sin tener que utilizar la línea de comandos.
+Docker también simplifica la administración de contenedores, permitiendo iniciar, detener y gestionar contenedores de manera eficiente utilizando comandos simples, como `docker run`, `docker volume create` y `docker network create`. Este enfoque facilita el desarrollo, despliegue y mantenimiento de aplicaciones sin tener que preocuparse por las dependencias del sistema operativo subyacente.
 
+### Imagen 1-1: Diagrama de contenedores en Docker
 
-### Conceptos clave:
-- **Contenedor Docker**: Un contenedor es una instancia de una imagen de Docker que puede ejecutarse de manera aislada, permitiendo que diferentes aplicaciones o servicios se ejecuten sin interferencias.
-- **Red Docker**: Las redes en Docker permiten que los contenedores se comuniquen entre sí sin exponer sus puertos al exterior.
-- **Variables de entorno**: Docker permite configurar contenedores utilizando variables de entorno, como `MYSQL_ROOT_PASSWORD` para establecer contraseñas en servicios como MySQL.
+![Diagrama de contenedores Docker](https://via.placeholder.com/800x400.png)
 
-<img src="https://dondocker.com/wp-content/uploads/2016/05/redes_aisladas_dondocker.png" width="800">
+## 4. Conocimientos previos
 
+Para realizar esta práctica, el estudiante necesita tener claros los siguientes temas:
 
-## 4. **Conocimientos previos**
+- **Docker**: Conocimiento básico sobre la creación y gestión de contenedores con Docker.
+- **Comandos de Docker**: Uso de comandos como `docker run`, `docker network create`, `docker volume create`, entre otros.
+- **Redes y Volúmenes en Docker**: Comprender la importancia de las redes para la comunicación entre contenedores y el uso de volúmenes para persistencia de datos.
+- **Gestión básica de bases de datos**: Conocimientos sobre bases de datos MySQL, creación de usuarios y bases de datos.
 
-Para realizar esta práctica, se debe tener conocimientos sobre los siguientes temas:
+## 5. Objetivos a alcanzar
 
-- Comandos Docker
-- Uso básico de MySQL
-- phpMyAdmin
-- Sistemas operativos
-- Creación y administración de redes en Docker
+- Crear y configurar contenedores Docker para WordPress, MySQL y phpMyAdmin.
+- Implementar una red Docker para permitir la comunicación entre los contenedores.
+- Usar volúmenes Docker para asegurar la persistencia de datos.
+- Acceder a WordPress a través de un navegador y administrar la base de datos mediante phpMyAdmin.
 
+## 6. Equipo necesario
 
-## 5. **Objetivos a alcanzar**
+- Computadora con sistema operativo **Windows/Linux/Mac**.
+- **Docker Desktop** instalado en el equipo (versión 20.x o superior).
+- Conexión a internet para descargar las imágenes necesarias de Docker.
+- Editor de texto para ver los comandos y realizar modificaciones si es necesario.
 
-- Implementar contenedores Docker para **MySQL** y **phpMyAdmin**.
-- Configurar una **red Docker personalizada** para permitir la comunicación entre los contenedores.
-- **Gestionar bases de datos MySQL** a través de la interfaz web de phpMyAdmin.
-- **Crear una base de datos**
+## 7. Material de apoyo
 
+- **Documentación oficial de Docker**: [https://docs.docker.com/](https://docs.docker.com/)
+- **Guía de asignatura**: Documento proporcionado por el docente con detalles adicionales de la práctica.
+- **Cheat sheet de Linux**: Guía rápida de comandos de Linux que puede ser útil durante el proceso de ejecución de Docker.
+- **Tutoriales de WordPress**: [https://wordpress.org/support/](https://wordpress.org/support/)
 
-## 6. **Equipo necesario**
+## 8. Procedimiento
 
-- **Computadora con sistema operativo**: Windows, Linux o macOS.
-- **Docker instalado**
-  
+### Paso 1: Crear una red Docker para los contenedores
 
-## 7. **Material de apoyo**
-
-- **Documentación oficial de Docker**
-- **Guía de asignatura**
-- **Documentación de phpMyAdmin**
-
-
-## 8. **Procedimiento**
-
-A continuación, se detallan los pasos necesarios para completar la práctica:
-
-### Paso 1: Crear el contenedor de MySQL
-
-Ejecute el siguiente comando para crear un contenedor de MySQL:
+Se comienza creando una red personalizada para que los contenedores puedan comunicarse entre sí:
 
 ```bash
-docker run -d --name mi_mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123 mysql:latest
-```
-<img src="./img_semana_4/1.png" width="800">
-
-### Paso 2: Crear el contenedor de phpMyAdmin
-
-Ejecute el siguiente comando para crear el contenedor de phpMyAdmin:
-
-```bash
-docker run -d --name mi_phpmyadmin -p 8080:80 -e PMA_HOST=mi_mysql -e PMA_PORT=3306 phpmyadmin/phpmyadmin
-```
-<img src="./img_semana_4/2.png" width="800">
-
-### Paso 3: Crear una red personalizada
-
-Cree una red personalizada para permitir que los contenedores se comuniquen entre sí:
-
-```bash
-docker network create --attachable mi_red
-```
-<img src="./img_semana_4/3.png" width="800">
-
-### Paso 4: Conectar los contenedores a la red
-
-Conecte ambos contenedores a la red recién creada:
-
-```bash
-docker network connect mi_red mi_mysql
-docker network connect mi_red mi_phpmyadmin
-```
-<img src="./img_semana_4/5.png" width="800">
-
-### Paso 5: Acceder a phpMyAdmin
-
-Acceda a la interfaz de phpMyAdmin desde su navegador en http://localhost:8080. Inicie sesión con las siguientes credenciales:
-- Usuario: root
-- Contraseña: 123
-
-<img src="./img_semana_4/6.png" width="800">
-
-### Paso 6: Crear una base de datos de prueba
-En phpMyAdmin, vaya a la pestaña "Bases de datos" y cree una nueva base de datos llamada ejemplo.
-
-<img src="./img_semana_4/7.png" width="800">
-
-## 9. **Resultados esperados**
-
-Al final de la práctica, se podra acceder a phpMyAdmin en el navegador, conectarte a MySQL y crear una base de datos de prueba. La estructura final será la siguiente:
-
-- Un contenedor mi_mysql que ejecuta MySQL.
-
-- Un contenedor mi_phpmyadmin que proporciona una interfaz web para gestionar MySQL.
-
-- Ambos contenedores deben estar conectados en una red Docker llamada mi_red.
-
-<img src="./img_semana_4/7.png" width="800">
-
-
-## 10. **Bibliografía**
-
-- Cómo crear una red de puente personalizada de Docker. (s/f). LabEx. Recuperado el 27 de abril de 2025, de https://labex.io/es/tutorials/docker-how-to-create-a-custom-docker-bridge-network-411523
-
-- Docker Documentation. (2025). Docker Inc. https://docs.docker.com
-
-- (Práctica 7. Creación de un contenedor Docker con phpMyAdmin). Josejuansanchez.org. Recuperado el 27 de abril de 2025, de https://josejuansanchez.org/bd/practica-07/index.html
-
-- Como crear un contenedor con Docker-Mysql y persistir la información. (s/f). Platzi. Recuperado el 27 de abril de 2025, de https://platzi.com/tutoriales/1432-docker-2018/3268-como-crear-un-contenedor-con-docker-mysql-y-persistir-la-informacion/
+docker network create wordpress-network
