@@ -1,4 +1,4 @@
-# Práctica servidor web
+# Implementación de un entorno WordPress utilizando contenedores Docker
 
 ## 1. Título
 
