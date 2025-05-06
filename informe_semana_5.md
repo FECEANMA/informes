@@ -10,7 +10,7 @@
 
 ## 3. Fundamentos
 
-En esta práctica, se utiliza Docker para crear un entorno aislado y flexible para ejecutar un sitio web basado en WordPress, con MySQL y phpMyAdmin, sin necesidad de instalar software directamente en el sistema operativo. Docker es una plataforma de software que permite automatizar la implementación de aplicaciones dentro de contenedores. Un contenedor es una unidad estándar de software que empaqueta el código y todas sus dependencias, lo que permite ejecutar aplicaciones de manera rápida y confiable en cualquier entorno.
+Se utiliza Docker para crear un entorno aislado y flexible para ejecutar un sitio web basado en WordPress, con MySQL y phpMyAdmin, sin necesidad de instalar software directamente en el sistema operativo. Docker es una plataforma de software que permite automatizar la implementación de aplicaciones dentro de contenedores. Un contenedor es una unidad estándar de software que empaqueta el código y todas sus dependencias, lo que permite ejecutar aplicaciones de manera rápida y confiable en cualquier entorno.
 
 Docker usa imágenes, que son plantillas inmutables de sistemas de archivos, para crear contenedores. En este caso, se utilizaron imágenes oficiales de MySQL y WordPress, junto con la imagen de phpMyAdmin para gestionar la base de datos de MySQL.
 
@@ -20,7 +20,7 @@ Docker también simplifica la administración de contenedores, permitiendo inici
 
 ### Imagen 1-1: Diagrama de contenedores en Docker
 
-![Diagrama de contenedores Docker](https://via.placeholder.com/800x400.png)
+<img src="[https://dondocker.com/wp-content/uploads/2016/05/redes_aisladas_dondocker.png](https://miro.medium.com/v2/resize:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png)" width="800">
 
 ## 4. Conocimientos previos
 
