@@ -105,13 +105,13 @@ Al finalizar la práctica, se espera obtener los siguientes resultados:
 
 - Acceso a WordPress: Se puede acceder a la interfaz de WordPress a través de http://localhost en un navegador.
 
-- Acceso a phpMyAdmin: Se puede acceder a phpMyAdmin mediante http://localhost:8080 para gestionar la base de datos MySQL.
-
-- Persistencia de datos: Los datos de WordPress y MySQL se mantienen incluso si se detienen o eliminan los contenedores, gracias a los volúmenes.
-
 <img src="./img_semana_5/7.png" width="800">
 
+- Acceso a phpMyAdmin: Se puede acceder a phpMyAdmin mediante http://localhost:8080 para gestionar la base de datos MySQL.
+
 <img src="./img_semana_5/8.png" width="800">
+
+- Persistencia de datos: Los datos de WordPress y MySQL se mantienen incluso si se detienen o eliminan los contenedores, gracias a los volúmenes.
 
 ## 10. Bibliografía
 
