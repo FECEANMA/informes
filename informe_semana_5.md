@@ -22,6 +22,7 @@ Docker también simplifica la administración de contenedores, permitiendo inici
 
 <img src="[https://dondocker.com/wp-content/uploads/2016/05/redes_aisladas_dondocker.png](https://miro.medium.com/v2/resize:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png)" width="800">
 
+
 ## 4. Conocimientos previos
 
 Para realizar esta práctica, el estudiante necesita tener claros los siguientes temas:
