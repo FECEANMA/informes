@@ -57,3 +57,52 @@ Se comienza creando una red personalizada para que los contenedores puedan comun
 
 ```bash
 docker network create wordpress-network
+```
+
+### Paso 2: Crear volúmenes Docker para los datos de MySQL y WordPress
+
+Luego, se crean dos volúmenes para almacenar de manera persistente los datos de MySQL y los archivos de WordPress:
+
+```bash
+docker volume create mysql_data
+docker volume create wordpress_data
+```
+
+### Paso 3: Crear el contenedor de MySQL
+
+A continuación, se crea el contenedor para MySQL, configurando las variables de entorno necesarias:
+
+```bash
+docker run -d --name mysql-container --network wordpress-network -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=wordpress -e MYSQL_USER=wordpressuser -e MYSQL_PASSWORD=wordpresspassword -v mysql_data:/var/lib/mysql mysql:5.7
+```
+
+### Paso 4: Crear el contenedor de phpMyAdmin
+
+Se crea el contenedor para phpMyAdmin para poder gestionar la base de datos MySQL de manera visual:
+
+```bash
+docker run -d --name phpmyadmin-container --network wordpress-network -e PMA_HOST=mysql-container -e PMA_PORT=3306 -p 8080:80 phpmyadmin/phpmyadmin
+```
+
+### Paso 5: Crear el contenedor de WordPress
+
+Por último, se lanza el contenedor de WordPress, conectándolo a la base de datos MySQL y configurando los volúmenes necesarios:
+
+```bash
+docker run -d --name wordpress-container --network wordpress-network -p 80:80 -e WORDPRESS_DB_HOST=mysql-container:3306 -e WORDPRESS_DB_NAME=wordpress -e WORDPRESS_DB_USER=wordpressuser -e WORDPRESS_DB_PASSWORD=wordpresspassword -v wordpress_data:/var/www/html wordpress:latest
+```
+
+## 9. Resultados esperados
+
+Al finalizar la práctica, se espera obtener los siguientes resultados:
+
+- Acceso a WordPress: Se puede acceder a la interfaz de WordPress a través de http://localhost en un navegador.
+
+- Acceso a phpMyAdmin: Se puede acceder a phpMyAdmin mediante http://localhost:8080 para gestionar la base de datos MySQL.
+
+- Persistencia de datos: Los datos de WordPress y MySQL se mantienen incluso si se detienen o eliminan los contenedores, gracias a los volúmenes.
+
+
+## 10. Bibliografía
+
+- Docker, Inc. (2023). Docker Documentation. Recuperado de https://docs.docker.com/
