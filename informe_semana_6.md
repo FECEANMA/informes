@@ -131,11 +131,10 @@ docker-compose up -d
 ## 10. Bibliografía
 - Docker, Inc. (2023). Docker Documentation. Recuperado de https://docs.docker.com/
 
-- Gómez, S. (s/f). Levantar un WordPress con Docker - Taller de Docker. Recuperado de https://aulasoftwarelibre.github.io/taller-de-docker/wordpress/
+- Gómez, S. (s/f). Levantar un WordPress con Compose - Taller de Docker. Github.io. Recuperado el 13 de mayo de 2025, de https://aulasoftwarelibre.github.io/taller-de-docker/docker-compose/
 
 - DockerHub (phpMyAdmin). Recuperado de https://hub.docker.com/_/phpmyadmin
 
 - DockerHub (WordPress). Recuperado de https://hub.docker.com/_/wordpress
 
 - DockerHub (MySQL). Recuperado de https://hub.docker.com/_/mysql
-
