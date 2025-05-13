@@ -1,4 +1,17 @@
-# Implementación de un entorno WordPress utilizando contenedores Docker
+# Implementación de WordPress con MySQL y phpMyAdmin usando Docker Compose
+
+## 1. Título
+
+**Implementación de WordPress con MySQL y phpMyAdmin usando Docker Compose**
+
+## 2. Tiempo de duración
+
+**45 minutos**
+
+## 3. Fundamentos
+
+Se utiliza Docker y Docker Compose para levantar un entorno
+
 
 ## 1. Título
 
