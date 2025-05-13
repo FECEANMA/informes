@@ -107,19 +107,29 @@ volumes:
   wordpress_data:
   db_data:
 ```
+<img src="./img_semana_6/1.png" width="800">
+
 ### Paso 2: Ejecutar los contenedores
 Ejecutar el siguiente comando en la misma carpeta donde está ubicado el archivo docker-compose.yml:
 
 ```
 docker-compose up -d
 ```
+<img src="./img_semana_6/2.png" width="800">
+
+<img src="./img_semana_6/3.png" width="800">
+
 **Esto descargará las imágenes necesarias y levantará los contenedores en segundo plano.**
 
 ### Paso 3: Verificar el entorno
 
 - Acceder a WordPress desde http://localhost:8000.
 
+  <img src="./img_semana_6/4.png" width="800">
+
 - Acceder a phpMyAdmin desde http://localhost:8080.
+
+<img src="./img_semana_6/5.png" width="800">
 
 ## 9. Resultados esperados
 - WordPress funcional: Se puede acceder desde el navegador, completar la instalación y comenzar a usarlo.
