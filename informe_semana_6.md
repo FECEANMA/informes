@@ -6,20 +6,7 @@
 
 ## 2. Tiempo de duración
 
-**45 minutos**
-
-## 3. Fundamentos
-
-Se utiliza Docker y Docker Compose para levantar un entorno
-
-
-## 1. Título
-
-**Implementación de un entorno WordPress utilizando contenedores Docker**
-
-## 2. Tiempo de duración
-
-**45 minutos**
+**30 minutos**
 
 ## 3. Fundamentos
 
@@ -55,7 +42,7 @@ Este enfoque proporciona una solución portátil, reproducible y aislada del sis
 ## 6. Equipo necesario
 
 - Computadora con Windows, Linux o macOS.
-- Docker y Docker Compose instalados.
+- Docker instalado.
 - Acceso a Internet para descargar las imágenes oficiales.
 
 ## 7. Material de apoyo
@@ -137,7 +124,7 @@ docker-compose up -d
 ## 9. Resultados esperados
 - WordPress funcional: Se puede acceder desde el navegador, completar la instalación y comenzar a usarlo.
 
-- phpMyAdmin disponible: Permite gestionar la base de datos de WordPress gráficamente.
+- phpMyAdmin: Permite gestionar la base de datos de WordPress gráficamente.
 
 - Datos persistentes: Gracias a los volúmenes wordpress_data y db_data, los datos se conservan tras reiniciar los contenedores.
 
