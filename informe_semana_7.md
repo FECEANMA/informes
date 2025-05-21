@@ -57,10 +57,10 @@ Este enfoque es muy útil para entornos de desarrollo y pruebas, ya que permite 
 
 ### Paso 1: Clonar los repositorios
 
-bash
+```bash
 git clone https://github.com/usuario/frontend-app
 git clone https://github.com/usuario/backend-mock
-
+```
 
 ---
 
@@ -68,43 +68,46 @@ git clone https://github.com/usuario/backend-mock
 
 **Frontend:**
 
-bash
+```bash
 cd frontend-app
 npm install
 npm start
-
+```
 
 **Backend simulado:**
 
-bash
+```bash
 cd backend-mock
 npm install
 npm start
-
+```
 
 ---
 
 ### Paso 3: Crear el Dockerfile para el frontend
-
+```
 Dockerfile
+```
 # Etapa de construcción
+```
 FROM node:18 AS build
 WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build
-
+```
 # Etapa de producción
+```
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
-
+```
 
 **nginx.conf:**
-
+```
 nginx
 server {
   listen 80;
@@ -117,11 +120,11 @@ server {
   }
 }
 
-
+```
 ---
 
 ### Paso 4: Crear Dockerfile para el backend simulado
-
+```
 Dockerfile
 FROM node:18
 WORKDIR /app
@@ -130,12 +133,12 @@ RUN npm install
 EXPOSE 3001
 CMD ["npm", "start"]
 
-
+```
 ---
 
 ### Paso 5: Construir las imágenes
 
-bash
+```bash
 # Frontend
 cd frontend-app
 docker build -t react-frontend-app .
@@ -143,21 +146,21 @@ docker build -t react-frontend-app .
 # Backend
 cd backend-mock
 docker build -t mock-backend .
-
+```
 
 ---
 
 ### Paso 6: Crear red personalizada y ejecutar contenedores
 
-bash
+```bash
 docker network create react-network
 
 docker run -d --name backend --network react-network -p 3001:3001 mock-backend
 
 docker run -d --name frontend --network react-network -p 80:80 react-frontend-app
+```
 
-
-📌 *Importante:* Asegúrate de que el frontend esté configurado para comunicarse con el backend usando http://backend:3001.
+*Importante:* Asegúrarse de que el frontend esté configurado para comunicarse con el backend usando http://backend:3001.
 
 ---
 
