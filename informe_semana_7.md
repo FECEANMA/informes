@@ -1,7 +1,3 @@
- **React con un backend simulado**, siguiendo el estilo y formato del ejemplo proporcionado: 
-
----
-
 # **Contenerización de una Aplicación React con Backend Simulado usando Docker**
 
 ## 1. Título
