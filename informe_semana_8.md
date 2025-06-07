@@ -1,5 +1,3 @@
----
-
 # Implementación de Backend Java con PostgreSQL y pgAdmin usando Docker Compose
 
 ## 1. Título
