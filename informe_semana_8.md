@@ -26,7 +26,7 @@ Este entorno incluye:
 
 Se definen también una **red personalizada** (`backend_network`) para la comunicación entre servicios, y **volúmenes persistentes** (`postgres_data`, `pgadmin_data`) para garantizar la conservación de datos.
 
-![Diagrama de servicios Docker backend](https://miro.medium.com/v2/resize\:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png)
+![Diagrama de servicios Docker backend]()
 
 ### Imagen 1-1: Diagrama de contenedores en Docker
 
@@ -191,6 +191,3 @@ docker-compose up --build -d
 * Guía Multi-stage builds. [https://docs.docker.com/build/building/multi-stage/](https://docs.docker.com/build/building/multi-stage/)
 
 ---
-
-¿Deseas que lo exporte como PDF o Word también?
-
