@@ -1,5 +1,3 @@
-Aquí tienes el informe adaptado al despliegue de una aplicación backend con PostgreSQL y pgAdmin usando Docker Compose, siguiendo la plantilla que me diste:
-
 ---
 
 # Implementación de Backend Java con PostgreSQL y pgAdmin usando Docker Compose
