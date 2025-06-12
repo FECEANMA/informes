@@ -1,8 +1,8 @@
-# Implementación de un entorno WordPress utilizando contenedores Docker
+# Despliegue de un Sitio WordPress con Docker: Contenedores para WordPress, MySQL y phpMyAdmin
 
 ## 1. Título
 
-**Implementación de un entorno WordPress utilizando contenedores Docker**
+**Despliegue de un Sitio WordPress con Docker: Contenedores para WordPress, MySQL y phpMyAdmin**
 
 ## 2. Tiempo de duración
 
