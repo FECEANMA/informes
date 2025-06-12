@@ -1,8 +1,7 @@
-# Implementación de WordPress con MySQL y phpMyAdmin usando Docker Compose
-
+# Despliegue de WordPress, MySQL y phpMyAdmin Usando Docker Compose
 ## 1. Título
 
-**Implementación de WordPress con MySQL y phpMyAdmin usando Docker Compose**
+**Despliegue de WordPress, MySQL y phpMyAdmin Usando Docker Compose**
 
 ## 2. Tiempo de duración
 
