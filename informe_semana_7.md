@@ -1,8 +1,8 @@
-# Contenerización de Aplicación React y Backend Simulado Usando Docker Compose
+# Contenerización de Aplicación React y Backend Simulado
 
 ## 1. Título
 
-**Contenerización de una Aplicación React y un Backend Simulado Usando Docker Compose**
+**Contenerización de una Aplicación React y un Backend Simulado**
 
 ## 2. Tiempo de duración
 
