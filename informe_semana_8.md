@@ -25,9 +25,8 @@ Se configuran también:
 
 Este enfoque facilita el despliegue local para desarrollo, pruebas y educación de forma aislada del sistema anfitrión.
 
-![Diagrama de despliegue](https://miro.medium.com/v2/resize\:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png)
+![Diagrama de despliegue](https://i.ytimg.com/vi/uKlRp6CqpDg/maxresdefault.jpg)
 
-### Imagen 1-1: Diagrama de contenedores interconectados en Docker
 
 ## 4. Conocimientos previos
 
@@ -120,6 +119,7 @@ networks:
   backend_network:
     driver: bridge
 ```
+<img src="./img_semana_8/1.png" width="800">
 
 ### Paso 2: Crear el archivo `.env`
 
@@ -131,6 +131,7 @@ POSTGRES_DB=app_db
 PGADMIN_EMAIL=admin@local.com
 PGADMIN_PASSWORD=admin123
 ```
+<img src="./img_semana_8/3.png" width="800">
 
 ### Paso 3: Crear el `Dockerfile` con multi-stage build
 
@@ -151,25 +152,16 @@ COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
+<img src="./img_semana_8/2.png" width="800">
 
 ### Paso 4: Levantar los servicios
 
 ```bash
 docker-compose up --build -d
 ```
+<img src="./img_semana_8/4.png" width="800">
+<img src="./img_semana_8/5.png" width="800">
 
-### Paso 6: Verificar funcionamiento
-
-* Backend: [http://localhost:8080](http://localhost:8080)
-* pgAdmin: [http://localhost:5050](http://localhost:5050)
-
-  * Ingresar email y password definidos en `.env`
-  * Crear un servidor:
-
-    * Host: `db`
-    * DB: `app_db`
-    * Usuario: `admin`
-    * Contraseña: `adminpass`
 
 ## 9. Resultados esperados
 
