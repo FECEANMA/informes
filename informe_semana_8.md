@@ -179,4 +179,3 @@ docker-compose up --build -d
 * pgAdmin Team. [pgAdmin Docs](https://www.pgadmin.org/docs/)
 * DockerHub (PostgreSQL): [https://hub.docker.com/\_/postgres](https://hub.docker.com/_/postgres)
 * DockerHub (pgAdmin): [https://hub.docker.com/r/dpage/pgadmin4](https://hub.docker.com/r/dpage/pgadmin4)
-* OpenJDK Eclipse Temurin: [https://hub.docker.com/\_/eclipse-temurin](https://hub.docker.com/_/eclipse-temurin)
