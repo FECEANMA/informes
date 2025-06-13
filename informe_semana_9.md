@@ -62,6 +62,7 @@ El propósito es entender cómo contenerizar aplicaciones, establecer la comunic
 │
 ├── docker-compose.yml
 ```
+<img src="./img_semana_9/1.png" width="800">
 
 ### Paso 2: Backend (Express + CORS)
 
@@ -87,6 +88,7 @@ app.listen(4000, () => {
   console.log('Backend API running on port 4000');
 });
 ```
+<img src="./img_semana_9/2.png" width="800">
 
 2. **backend/package.json**
 
@@ -104,6 +106,7 @@ app.listen(4000, () => {
   }
 }
 ```
+<img src="./img_semana_9/3.png" width="800">
 
 3. **backend/Dockerfile**
 
@@ -116,6 +119,7 @@ COPY . .
 EXPOSE 4000
 CMD ["npm", "start"]
 ```
+<img src="./img_semana_9/4.png" width="800">
 
 ### Paso 3: Frontend (React)
 
@@ -164,6 +168,7 @@ function App() {
 
 export default App;
 ```
+<img src="./img_semana_9/5.png" width="800">
 
 2. **frontend/Dockerfile**
 
@@ -176,6 +181,7 @@ COPY . .
 EXPOSE 3000
 CMD ["npm", "start"]
 ```
+<img src="./img_semana_9/6.png" width="800">
 
 3. **frontend/package.json**
 
@@ -194,6 +200,7 @@ CMD ["npm", "start"]
   }
 }
 ```
+<img src="./img_semana_9/7.png" width="800">
 
 ### Paso 4: Docker Compose
 
@@ -222,6 +229,7 @@ services:
 networks:
   app-network:
 ```
+<img src="./img_semana_9/8.png" width="800">
 
 ### Paso 5: Uso de Docker Compose
 
@@ -234,7 +242,7 @@ docker-compose up --build
 2. Acceder a la aplicación en el navegador:
 
    * Frontend: [http://localhost:3000](http://localhost:3000)
-   * API (opcional, para test): [http://localhost:4000/api/voltage-events](http://localhost:4000/api/voltage-events)
+   * API: [http://localhost:4000/api/voltage-events](http://localhost:4000/api/voltage-events)
 
 ## 9. Resultados esperados
 
@@ -242,6 +250,8 @@ docker-compose up --build
 * La API backend responde adecuadamente a las solicitudes del frontend.
 * Los datos de la entidad "Eventos de Pico de Voltaje" se muestran correctamente en la tabla.
 * La comunicación entre los contenedores funciona sin problemas.
+  
+<img src="./img_semana_9/11.png" width="800">
 
 ## 10. Notas Finales
 
