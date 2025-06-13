@@ -61,25 +61,7 @@ Este enfoque facilita el despliegue local para desarrollo, pruebas y educación 
 
 ## 8. Procedimiento
 
-### Paso 1: Clonar el proyecto
-
-```bash
-git clone https://github.com/maguaman2/tendencias-mar22-security.git
-cd tendencias-mar22-security
-```
-
-### Paso 2: Crear el archivo `.env`
-
-```dotenv
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=adminpass
-POSTGRES_DB=app_db
-
-PGADMIN_EMAIL=admin@local.com
-PGADMIN_PASSWORD=admin123
-```
-
-### Paso 3: Crear el `docker-compose.yml`
+### Paso 1: Crear el `docker-compose.yml`
 
 ```yaml
 version: "3.8"
@@ -139,7 +121,18 @@ networks:
     driver: bridge
 ```
 
-### Paso 4: Crear el `Dockerfile` con multi-stage build
+### Paso 2: Crear el archivo `.env`
+
+```dotenv
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=adminpass
+POSTGRES_DB=app_db
+
+PGADMIN_EMAIL=admin@local.com
+PGADMIN_PASSWORD=admin123
+```
+
+### Paso 3: Crear el `Dockerfile` con multi-stage build
 
 Ubicado en `backend/Dockerfile`:
 
@@ -159,7 +152,7 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
-### Paso 5: Levantar los servicios
+### Paso 4: Levantar los servicios
 
 ```bash
 docker-compose up --build -d
