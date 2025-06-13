@@ -255,6 +255,6 @@ docker-compose up --build
 
 ## 10. Bibliografía
 
-* Asegúrate de que la API esté accesible desde React usando el nombre del servicio Docker (backend, no localhost).
-* Puedes personalizar la entidad mostrada en la tabla, como cambiar "voltage-events" por "current-logs", "overload-warnings", etc.
-* Para producción, considera usar un contenedor con Nginx para servir la aplicación React optimizada.
+* Docker, Inc. (2024). Docker Documentation
+* Mikhalev, V. (2024, diciembre 10). How to dockerize a React app: A step-by-step guide for developers. Docker. https://www.docker.com/blog/how-to-dockerize-react-app/
+* Koshta, P. (2021, marzo 5). Dockerize your React, Django Rest Api Application and serve using nginx. Medium. https://parthkoshta.medium.com/dockerize-your-react-django-rest-api-application-and-serve-using-nginx-6f9ccf17105b
