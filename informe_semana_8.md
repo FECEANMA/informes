@@ -1,82 +1,94 @@
-# Implementación de Backend Java con PostgreSQL y pgAdmin usando Docker Compose
+# Despliegue de aplicación Backend con PostgreSQL y pgAdmin Usando Docker Compose
 
 ## 1. Título
 
-**Implementación de Backend Java con PostgreSQL y pgAdmin usando Docker Compose**
+**Despliegue de aplicación Backend con PostgreSQL y pgAdmin Usando Docker Compose**
 
 ## 2. Tiempo de duración
 
-**40 minutos**
+**45 minutos**
 
 ## 3. Fundamentos
 
-Se utiliza Docker y Docker Compose para automatizar el despliegue de una aplicación backend Java (Spring Boot), acompañada de una base de datos PostgreSQL y un panel de administración pgAdmin. Este entorno permite levantar los servicios de forma rápida y aislada, ideal para desarrollo y pruebas locales.
+Se utiliza **Docker** y **Docker Compose** para desplegar una aplicación backend Java (Spring Boot) conectada a una base de datos PostgreSQL, con acceso a través de **pgAdmin** como herramienta de administración gráfica.
 
-**Docker Compose** permite definir y ejecutar múltiples contenedores como un solo servicio, con sus redes, volúmenes y dependencias claramente especificadas en un archivo YAML (`docker-compose.yml`).
+Este entorno se define mediante un archivo `docker-compose.yml`, lo cual permite levantar todos los servicios con un solo comando. Se incluyen:
 
-Este entorno incluye:
+* Contenedor para la aplicación backend (Java + Spring Boot),
+* Contenedor para PostgreSQL como sistema gestor de base de datos relacional,
+* Contenedor para pgAdmin para gestionar PostgreSQL visualmente.
 
-* Un contenedor con la aplicación backend Java (compilada con Maven).
-* Un contenedor con PostgreSQL como sistema de gestión de base de datos.
-* Un contenedor con pgAdmin para la administración gráfica de PostgreSQL.
+Se configuran también:
 
-Se definen también una **red personalizada** (`backend_network`) para la comunicación entre servicios, y **volúmenes persistentes** (`postgres_data`, `pgadmin_data`) para garantizar la conservación de datos.
+* Una **red personalizada** (`backend_network`) para conectar los servicios,
+* **Volúmenes persistentes** (`postgres_data`, `pgadmin_data`) para mantener los datos entre reinicios.
 
-![Diagrama de servicios Docker backend]()
+Este enfoque facilita el despliegue local para desarrollo, pruebas y educación de forma aislada del sistema anfitrión.
 
-### Imagen 1-1: Diagrama de contenedores en Docker
+![Diagrama de despliegue](https://miro.medium.com/v2/resize\:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png)
+
+### Imagen 1-1: Diagrama de contenedores interconectados en Docker
 
 ## 4. Conocimientos previos
 
-* **Docker**: Imágenes, contenedores, volúmenes, redes.
-* **Docker Compose**: Uso básico de `docker-compose.yml`.
-* **Spring Boot / Java**: Comprensión general de aplicaciones backend.
-* **PostgreSQL y pgAdmin**: Nociones de base de datos relacional y su gestión.
+* **Docker**: Contenedores, volúmenes, redes, imágenes.
+* **Docker Compose**: Sintaxis de YAML, comandos básicos (`up`, `down`, `build`).
+* **PostgreSQL y pgAdmin**: Conexión, gestión de bases de datos.
+* **Java (Spring Boot)**: Conocimiento básico de proyectos Maven.
 
 ## 5. Objetivos a alcanzar
 
-* Desplegar un entorno backend completo usando `docker-compose`.
-* Configurar PostgreSQL y pgAdmin con volúmenes persistentes.
-* Construir la imagen del backend con Docker (multi-stage).
-* Verificar conectividad entre aplicación y base de datos.
-* Acceder a pgAdmin para administración de datos.
+* Crear un entorno con PostgreSQL y pgAdmin usando `docker-compose`.
+* Construir la imagen del backend Java usando un `Dockerfile`.
+* Configurar la conexión del backend a PostgreSQL.
+* Usar redes y volúmenes para persistencia y conectividad.
+* Acceder a pgAdmin para verificar la base de datos.
+* Usar técnicas de **multi-stage builds** para optimizar la imagen del backend.
 
 ## 6. Equipo necesario
 
-* Computadora con Windows, Linux o macOS.
+* PC con Windows, Linux o macOS.
 * Docker y Docker Compose instalados.
-* Conexión a Internet para descargar las imágenes base.
-* Repositorio base: [https://github.com/maguaman2/tendencias-mar22-security.git](https://github.com/maguaman2/tendencias-mar22-security.git)
+* Acceso a internet para descargar imágenes.
+* Git para clonar el repositorio base.
 
 ## 7. Material de apoyo
 
 * [Documentación oficial de Docker](https://docs.docker.com/)
-* [Guía Multi-stage Builds en Docker](https://docs.docker.com/build/building/multi-stage/)
-* [DockerHub - PostgreSQL](https://hub.docker.com/_/postgres)
-* [DockerHub - pgAdmin](https://hub.docker.com/r/dpage/pgadmin4)
-* [Guía oficial de Spring Boot](https://spring.io/projects/spring-boot)
+* [Documentación de Spring Boot](https://spring.io/projects/spring-boot)
+* [Guía oficial de PostgreSQL](https://www.postgresql.org/docs/)
+* [pgAdmin Docs](https://www.pgadmin.org/docs/)
 
 ## 8. Procedimiento
 
-### Paso 1: Crear archivo `.env`
+### Paso 1: Clonar el proyecto
 
-```env
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=admin
-POSTGRES_DB=mydb
-PGADMIN_EMAIL=admin@pgadmin.com
-PGADMIN_PASSWORD=admin
+```bash
+git clone https://github.com/maguaman2/tendencias-mar22-security.git
+cd tendencias-mar22-security
 ```
 
-### Paso 2: Crear archivo `docker-compose.yml`
+### Paso 2: Crear el archivo `.env`
+
+```dotenv
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=adminpass
+POSTGRES_DB=app_db
+
+PGADMIN_EMAIL=admin@local.com
+PGADMIN_PASSWORD=admin123
+```
+
+### Paso 3: Crear el `docker-compose.yml`
 
 ```yaml
-version: '3.9'
+version: "3.8"
 
 services:
-  postgres:
+  db:
     image: postgres:15
     container_name: postgres_db
+    restart: always
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -85,11 +97,11 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - backend_network
-    restart: always
 
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
+    restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
@@ -100,90 +112,86 @@ services:
     networks:
       - backend_network
     depends_on:
-      - postgres
-    restart: always
+      - db
 
   backend:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
-    container_name: backend
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
-      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
-      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
-      SPRING_PROFILES_ACTIVE: dev
+    container_name: backend_app
     ports:
       - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
     networks:
       - backend_network
     depends_on:
-      - postgres
-    restart: always
-
-networks:
-  backend_network:
-    driver: bridge
+      - db
 
 volumes:
   postgres_data:
   pgadmin_data:
+
+networks:
+  backend_network:
+    driver: bridge
 ```
 
-### Paso 3: Crear `Dockerfile` con multi-stage build
+### Paso 4: Crear el `Dockerfile` con multi-stage build
 
-```dockerfile
-# Etapa de construcción
-FROM maven:3.8.6-openjdk-17-slim AS build
+Ubicado en `backend/Dockerfile`:
 
+```Dockerfile
+# Etapa 1: Compilar
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 WORKDIR /app
-COPY backend/pom.xml .
-RUN mvn dependency:go-offline
-
-COPY backend/src ./src
+COPY pom.xml .
+COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Etapa de ejecución
-FROM openjdk:17-jdk-slim
-
+# Etapa 2: Imagen final
+FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
-COPY --from=build /app/target/backend-1.0.jar backend.jar
-
+COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "backend.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 
-### Paso 4: Levantar los contenedores
+### Paso 5: Levantar los servicios
 
 ```bash
 docker-compose up --build -d
 ```
 
-### Paso 5: Verificar conectividad
+### Paso 6: Verificar funcionamiento
 
-* Acceder a [http://localhost:5050](http://localhost:5050) con el correo y contraseña de `.env`.
-* Crear un nuevo servidor con:
+* Backend: [http://localhost:8080](http://localhost:8080)
+* pgAdmin: [http://localhost:5050](http://localhost:5050)
 
-  * Host: `postgres`
-  * Base de datos: `mydb`
-  * Usuario: `admin`
-  * Contraseña: `admin`
-* Acceder a [http://localhost:8080](http://localhost:8080) para verificar el backend.
+  * Ingresar email y password definidos en `.env`
+  * Crear un servidor:
+
+    * Host: `db`
+    * DB: `app_db`
+    * Usuario: `admin`
+    * Contraseña: `adminpass`
 
 ## 9. Resultados esperados
 
-* El backend Java estará corriendo en el puerto 8080, conectado a la base de datos.
-* pgAdmin accesible para la administración visual de la base de datos PostgreSQL.
-* Los datos se conservan aunque se apaguen los contenedores, gracias a los volúmenes `postgres_data` y `pgadmin_data`.
-* Imagen del backend optimizada gracias a la técnica multi-stage build.
+* Aplicación backend ejecutándose en el puerto `8080`.
+* pgAdmin disponible en el puerto `5050`.
+* Conexión establecida entre backend y PostgreSQL.
+* pgAdmin permite gestionar la base de datos gráficamente.
+* Persistencia de datos tras reinicios gracias a volúmenes.
+* Imagen del backend optimizada con multi-stage builds.
 
 ## 10. Bibliografía
 
-* Docker, Inc. (2023). [Docker Documentation](https://docs.docker.com/)
-* PostgreSQL Docker Image. [DockerHub](https://hub.docker.com/_/postgres)
-* pgAdmin Docker Image. [DockerHub](https://hub.docker.com/r/dpage/pgadmin4)
-* OpenJDK Base Images. [DockerHub](https://hub.docker.com/_/openjdk)
-* Spring Boot Docs. [https://spring.io/](https://spring.io/)
-* Guía Multi-stage builds. [https://docs.docker.com/build/building/multi-stage/](https://docs.docker.com/build/building/multi-stage/)
-
----
+* Docker, Inc. (2024). [Docker Documentation](https://docs.docker.com/)
+* PostgreSQL Global Development Group. [PostgreSQL Docs](https://www.postgresql.org/docs/)
+* pgAdmin Team. [pgAdmin Docs](https://www.pgadmin.org/docs/)
+* DockerHub (PostgreSQL): [https://hub.docker.com/\_/postgres](https://hub.docker.com/_/postgres)
+* DockerHub (pgAdmin): [https://hub.docker.com/r/dpage/pgadmin4](https://hub.docker.com/r/dpage/pgadmin4)
+* OpenJDK Eclipse Temurin: [https://hub.docker.com/\_/eclipse-temurin](https://hub.docker.com/_/eclipse-temurin)
