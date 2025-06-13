@@ -253,7 +253,7 @@ docker-compose up --build
   
 <img src="./img_semana_9/11.png" width="800">
 
-## 10. Notas Finales
+## 10. Bibliografía
 
 * Asegúrate de que la API esté accesible desde React usando el nombre del servicio Docker (backend, no localhost).
 * Puedes personalizar la entidad mostrada en la tabla, como cambiar "voltage-events" por "current-logs", "overload-warnings", etc.
