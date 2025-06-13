@@ -19,9 +19,7 @@ A diferencia del uso de Docker Compose, aquí se levantan los contenedores de fo
 
 Este enfoque proporciona un entorno portable, reproducible y controlado, ideal para comprender cómo se construyen y ejecutan contenedores.
 
-![Diagrama Docker React + Backend]([https://miro.medium.com/v2/resize\:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png](https://i.ytimg.com/vi/o4HJVBHohWI/maxresdefault.jpg))
-
-### Imagen 1-1: Diagrama conceptual de los contenedores React y mockAPI
+![Diagrama Docker React + Backend](https://i.ytimg.com/vi/o4HJVBHohWI/maxresdefault.jpg)
 
 ## 4. Conocimientos previos
 
