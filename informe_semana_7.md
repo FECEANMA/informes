@@ -10,16 +10,15 @@
 
 ## 3. Fundamentos
 
-En esta práctica se utiliza Docker y Docker Compose para desplegar de forma automatizada un entorno de desarrollo compuesto por:
+En esta práctica se utiliza Docker para desplegar manualmente un entorno de desarrollo compuesto por:
 
-* Un contenedor con una **aplicación React (frontend)**,
-* Un contenedor con un **backend simulado (mockAPI)**.
+Un contenedor con una aplicación React (frontend),
 
-Este entorno está definido mediante un archivo `docker-compose.yml` que facilita la construcción y puesta en marcha de los servicios con un solo comando. También se define una **red personalizada** para la comunicación entre contenedores.
+Un contenedor con un backend simulado (mockAPI).
 
-La aplicación React depende del backend para funcionar correctamente, por lo que el entorno permite levantar ambos componentes de manera coordinada.
+A diferencia del uso de Docker Compose, aquí se levantan los contenedores de forma manual e individual, permitiendo mayor control sobre el proceso de construcción y ejecución de cada componente. 
 
-Este enfoque asegura un entorno portable, reproducible y fácil de ejecutar en cualquier máquina con Docker instalado.
+Este enfoque proporciona un entorno portable, reproducible y controlado, ideal para comprender cómo se construyen y ejecutan contenedores.
 
 ![Diagrama Docker React + Backend](https://miro.medium.com/v2/resize\:fit:1400/1*eZkzxE0RWDXgRyfVdfMHbw.png)
 
@@ -27,8 +26,7 @@ Este enfoque asegura un entorno portable, reproducible y fácil de ejecutar en c
 
 ## 4. Conocimientos previos
 
-* **Docker**: Creación de imágenes, redes, contenedores y volúmenes.
-* **Docker Compose**: Configuración de múltiples servicios con archivos YAML.
+* **Docker**: Creación de imágenes, contenedores y volúmenes.
 * **React.js**: Conocimiento básico de aplicaciones frontend.
 * **Node.js y npm**: Instalación y ejecución de proyectos.
 
@@ -36,14 +34,14 @@ Este enfoque asegura un entorno portable, reproducible y fácil de ejecutar en c
 
 * Clonar y verificar el correcto funcionamiento de una aplicación React y un backend simulado.
 * Crear una imagen Docker personalizada para el frontend.
-* Crear un entorno multi-contenedor con `docker-compose`.
-* Ejecutar y conectar ambos servicios en una red Docker.
+* Levantar manualmente ambos contenedores.
+* Comprobar la correcta comunicación entre frontend y backend.
 
 ## 6. Equipo necesario
 
 * Computadora con Windows, Linux o macOS.
-* Docker y Docker Compose instalados.
-* Acceso a Internet para clonar repositorios e imágenes.
+* Docker instalado.
+* Acceso a Internet para clonar repositorios y descargar imágenes.
 
 ## 7. Material de apoyo
 
@@ -66,13 +64,13 @@ git clone https://github.com/Daviddotcoms/mockAPI.git
 Ubicado en `suda-frontend-s6/`:
 
 ```Dockerfile
+# Imagen base
 FROM node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-
 FROM nginx:stable-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
@@ -109,23 +107,30 @@ networks:
   react-network:
 ```
 
-### Paso 4: Ejecutar los servicios
-
-Ubicarse en el directorio donde se encuentra `docker-compose.yml` y ejecutar:
+### Paso 4: Construir la imagen Docker
 
 ```bash
-docker-compose up --build -d
+docker build -t suda-frontend .
 ```
 
-### Paso 5: Verificar funcionamiento
+### Paso 5: Ejecutar los contenedores (mockAPI + frontend)
+
+```bash
+docker run -d -p 3001:3001 node:18-alpine sh -c "apk add --no-cache git && git clone https://github.com/Daviddotcoms/mockAPI.git && cd mockAPI && npm install && npm start"
+```
+
+```bash
+docker run -d -p 80:80 suda-frontend
+```
 
 * Acceder a la aplicación React en: [http://localhost](http://localhost)
 * El backend simulado estará disponible en: [http://localhost:3001](http://localhost:3001)
 
 ## 9. Resultados esperados
 
-* La aplicación React funciona correctamente y se comunica con el backend.
-* Ambos servicios están activos y visibles en `docker ps`.
+* La aplicación React carga correctamente en el navegador.
+* El contenedor de backend responde a solicitudes del frontend.
+* Los datos de prueba del backend se visualizan correctamente en la interfaz.
 * El contenedor frontend responde en el navegador.
 * La API mock funciona y entrega datos esperados.
 
