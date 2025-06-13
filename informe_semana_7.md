@@ -58,6 +58,9 @@ Este enfoque proporciona un entorno portable, reproducible y controlado, ideal p
 git clone https://github.com/Daviddotcoms/suda-frontend-s6.git
 git clone https://github.com/Daviddotcoms/mockAPI.git
 ```
+<img src="./img_semana_7/1.png" width="800">
+
+<img src="./img_semana_7/2.png" width="800">
 
 ### Paso 2: Crear el archivo Dockerfile para el frontend
 
@@ -76,52 +79,31 @@ COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
+<img src="./img_semana_7/3.png" width="800">
 
-### Paso 3: Crear el archivo `docker-compose.yml`
-
-```yaml
-version: '3.8'
-
-services:
-  frontend:
-    build: ./suda-frontend-s6
-    ports:
-      - "80:80"
-    depends_on:
-      - mockapi
-    networks:
-      - react-network
-
-  mockapi:
-    image: node:18-alpine
-    working_dir: /app
-    volumes:
-      - ./mockAPI:/app
-    command: sh -c "npm install && npm start"
-    ports:
-      - "3001:3001"
-    networks:
-      - react-network
-
-networks:
-  react-network:
-```
-
-### Paso 4: Construir la imagen Docker
+### Paso 3: Construir la imagen Docker
 
 ```bash
 docker build -t suda-frontend .
 ```
+<img src="./img_semana_7/5.png" width="800">
 
-### Paso 5: Ejecutar los contenedores (mockAPI + frontend)
+<img src="./img_semana_7/4.png" width="800">
+
+### Paso 4: Ejecutar los contenedores (mockAPI + frontend)
 
 ```bash
 docker run -d -p 3001:3001 node:18-alpine sh -c "apk add --no-cache git && git clone https://github.com/Daviddotcoms/mockAPI.git && cd mockAPI && npm install && npm start"
 ```
+<img src="./img_semana_7/7.png" width="800">
+
 
 ```bash
 docker run -d -p 80:80 suda-frontend
 ```
+<img src="./img_semana_7/6.png" width="800">
+
+<img src="./img_semana_7/8.png" width="800">
 
 * Acceder a la aplicación React en: [http://localhost](http://localhost)
 * El backend simulado estará disponible en: [http://localhost:3001](http://localhost:3001)
@@ -142,5 +124,3 @@ docker run -d -p 80:80 suda-frontend
 * GitHub: Repositorio mockAPI - [https://github.com/Daviddotcoms/mockAPI](https://github.com/Daviddotcoms/mockAPI)
 * DockerHub (Nginx) - [https://hub.docker.com/\_/nginx](https://hub.docker.com/_/nginx)
 * DockerHub (Node) - [https://hub.docker.com/\_/node](https://hub.docker.com/_/node)
-
----
