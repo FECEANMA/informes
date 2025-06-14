@@ -43,72 +43,7 @@ El propósito es entender cómo contenerizar aplicaciones, establecer la comunic
 
 ## 8. Procedimiento
 
-### Paso 1: Estructura de Proyecto
-
-```bash
-/regleta-inteligente/
-│
-├── backend/
-│   ├── index.js
-│   ├── package.json
-│   ├── Dockerfile
-│
-├── frontend/
-│   ├── src/
-│   │   └── App.jsx
-│   ├── public/
-│   ├── Dockerfile
-│   ├── package.json
-│
-├── docker-compose.yml
-```
-<img src="./img_semana_9/1.png" width="800">
-
-### Paso 2: Backend (Express + CORS)
-
-1. **backend/index.js**
-
-```javascript
-const express = require('express');
-const cors = require('cors');
-
-const app = express();
-app.use(cors());
-
-const voltageEvents = [
-  { id: 1, timestamp: "2025-06-12T14:30:00Z", voltage_peak: 245.5, duration_ms: 120 },
-  { id: 2, timestamp: "2025-06-12T15:00:00Z", voltage_peak: 248.2, duration_ms: 98 },
-];
-
-app.get('/api/voltage-events', (req, res) => {
-  res.json(voltageEvents);
-});
-
-app.listen(4000, () => {
-  console.log('Backend API running on port 4000');
-});
-```
-<img src="./img_semana_9/2.png" width="800">
-
-2. **backend/package.json**
-
-```json
-{
-  "name": "backend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5"
-  }
-}
-```
-<img src="./img_semana_9/3.png" width="800">
-
-3. **backend/Dockerfile**
+### Paso 1: backend/Dockerfile
 
 ```Dockerfile
 FROM node:18
@@ -121,56 +56,8 @@ CMD ["npm", "start"]
 ```
 <img src="./img_semana_9/4.png" width="800">
 
-### Paso 3: Frontend (React)
 
-1. **frontend/src/App.jsx**
-
-```jsx
-import { useEffect, useState } from 'react';
-import './App.css';
-
-function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch('http://backend:4000/api/voltage-events')
-      .then(res => res.json())
-      .then(setData)
-      .catch(err => console.error(err));
-  }, []);
-
-  return (
-    <div className="App">
-      <h1>Eventos de Pico de Voltaje</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Timestamp</th>
-            <th>Voltaje Pico (V)</th>
-            <th>Duración (ms)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(ev => (
-            <tr key={ev.id}>
-              <td>{ev.id}</td>
-              <td>{new Date(ev.timestamp).toLocaleString()}</td>
-              <td>{ev.voltage_peak}</td>
-              <td>{ev.duration_ms}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-export default App;
-```
-<img src="./img_semana_9/5.png" width="800">
-
-2. **frontend/Dockerfile**
+### Paso 2: frontend/Dockerfile
 
 ```Dockerfile
 FROM node:18
@@ -183,28 +70,9 @@ CMD ["npm", "start"]
 ```
 <img src="./img_semana_9/6.png" width="800">
 
-3. **frontend/package.json**
+### Paso 3: Docker Compose
 
-```json
-{
-  "name": "frontend",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "5.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start"
-  }
-}
-```
-<img src="./img_semana_9/7.png" width="800">
-
-### Paso 4: Docker Compose
-
-1. **docker-compose.yml**
+**docker-compose.yml**
 
 ```yaml
 version: '3.9'
