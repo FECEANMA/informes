@@ -72,8 +72,6 @@ CMD ["npm", "start"]
 
 ### Paso 3: Docker Compose
 
-**docker-compose.yml**
-
 ```yaml
 version: '3.9'
 
@@ -99,7 +97,7 @@ networks:
 ```
 <img src="./img_semana_9/8.png" width="800">
 
-### Paso 5: Uso de Docker Compose
+### Paso 4: Uso de Docker Compose
 
 1. Construir y levantar los contenedores:
 
